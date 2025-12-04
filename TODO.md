@@ -4,6 +4,6 @@
 - [x] Deploy repo
 - [x] Add directory.packages.props
 - [x] Dependabot
-- [ ] Remove sample code
+- [x] Remove sample code
 - [ ] Add packages - dotenv and json
 - [ ] Add Google Map
