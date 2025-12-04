@@ -3,7 +3,7 @@
 - [x] Create README
 - [x] Deploy repo
 - [x] Add directory.packages.props
-- [ ] Dependabot
+- [x] Dependabot
 - [ ] Remove sample code
 - [ ] Add packages - dotenv and json
 - [ ] Add Google Map
