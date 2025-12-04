@@ -7,11 +7,15 @@
     <File Path="TODO.md" />
   </Folder>
   <Folder Name="/Solution Items/.github/">
+    <File Path=".github/dependabot.yml" />
+  </Folder>
+  <Folder Name="/Solution Items/.github/workflows/">
     <File Path=".github/workflows/deploy.yml" />
   </Folder>
   <Folder Name="/src/">
     <Project Path="src/TakeawayFinder/TakeawayFinder.csproj" />
   </Folder>
-  <Folder Name="/tests/" />
-    <!-- Test Project to be added -->
+  <Folder Name="/tests/">
+    <!-- To be added -->
+  </Folder>
 </Solution>
