@@ -24,7 +24,7 @@ export async function initMapAsync(latitude, longitude, zoom) {
     map = new Map(document.getElementById("map"), {
         center: { lat: latitude, lng: longitude },
         zoom: zoom,
-        mapId: "d7b294dd99b1624aef6092e4"
+        mapId: "MAP_ID"
     });
 }
 

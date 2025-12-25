@@ -13,8 +13,12 @@
 - [x] Create files for Interop and wwwroot
 - [x] Populate FindTakeaway page
 - [x] Add logic for `GoogleMapsInterop.cs` and `googleMapsInterop.js`
-- [ ] Add docs folder
+- [x] Add docs folder and required files
+- [x] Add license and add to GitHub repository
+- [ ] Minimal API project, Test Project, Rename Projects
+- [ ] Work on Minimal API stuff and get it deployed
+- [ ] Fix deployment issues
+- [ ] Put logic from FindTakeaway.razor into FindTakeaway.razor.cs
 - [ ] Review and refactor code that has been added so far
 - [ ] Implementation of Just Eat API
 - [ ] Main feature of entering postcode and markers being added to map
-- [ ] Clean up code

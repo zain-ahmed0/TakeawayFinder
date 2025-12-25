@@ -1,5 +1,3 @@
-# Takeaway Finder
-
 ## Project Structure
 
 ### Pages
@@ -28,6 +26,3 @@
 
 ### wwwroot
 - `googleMapsInterop.js` - Will call the Google Maps API
-
-### Google Maps
-- To get Google Maps working create an API Key and restrict to Maps JavaScript API and create a vector Map ID

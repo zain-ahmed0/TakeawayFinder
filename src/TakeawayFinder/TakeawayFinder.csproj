@@ -23,8 +23,4 @@
       <None Include="wwwroot\decode.js" />
     </ItemGroup>
 
-    <ItemGroup>
-      <_ContentIncludedByDefault Remove="wwwroot\sample-data\weather.json" />
-    </ItemGroup>
-
 </Project>
