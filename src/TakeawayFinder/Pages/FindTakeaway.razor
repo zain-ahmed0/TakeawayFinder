@@ -21,6 +21,17 @@
 <div id="map" style="height: 500px; width: 100%;"></div>
 
 @code {
+    static HttpClient client = new HttpClient();
+    
+    private static async Task<String> GetData()
+    {
+        using HttpResponseMessage response = await client.GetAsync("http://localhost:5101");
+        
+        string responseBody = await response.Content.ReadAsStringAsync();
+
+        return responseBody;
+    }
+    
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -28,6 +39,11 @@
             await GoogleMapsService.InitMapAsync(51.53721, 0.04687, 12);
 
             await GoogleMapsService.AddMarkerAsync(51.53721, 0.04687);
+
+            string data = await GetData();
+            
+            Console.WriteLine(data);
         }
     }
+    
 }

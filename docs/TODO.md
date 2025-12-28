@@ -16,11 +16,11 @@
 - [x] Add docs folder and required files
 - [x] Add license and add to GitHub repository
 - [x] Create Minimal API project
-- [ ] Fix GitHub pages deployment issues
-- [ ] Create Minimal API - Understand what we want from the Just Eat response
+- [x] Create Minimal API - Understand what we want from the Just Eat response
 - [ ] Deploy Minimal API
-- [ ] Put logic from FindTakeaway.razor into FindTakeaway.razor.cs
-- [ ] Review and refactor code that has been added so far
 - [ ] Implementation of Just Eat API
 - [ ] Main feature of entering postcode and markers being added to map
 - [ ] Click on marker and view more details
+- [ ] Fix GitHub pages deployment issues
+- [ ] Put logic from FindTakeaway.razor into FindTakeaway.razor.cs
+- [ ] Review and refactor code that has been added so far

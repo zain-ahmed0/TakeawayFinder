@@ -1,13 +1,37 @@
+using System.Text.Json;
 using TakeawayFinder.Api;
+using TakeawayFinder.Api.Dtos;
+
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
 
-app.MapGet("/", async () =>
+builder.Services.AddCors(options =>
 {
-    string data = await JustEatApi.GetData();
-    
-    return Results.Content(data, "application/json");
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:5273")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
 });
 
-app.Run();
+builder.Services.AddControllers();
+
+var app = builder.Build();
+
+app.UseCors(MyAllowSpecificOrigins);
+
+app.MapGet("/{postcode}", async (string postcode) =>
+{
+    string data = await JustEatApiService.GetData(postcode);
+    
+    var result = JsonSerializer.Deserialize<JustEatResponseDto>(
+        data,
+        new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+    
+    return Results.Ok(result?.Restaurants);
+}).RequireCors(MyAllowSpecificOrigins);
+
+app.Run("http://localhost:5101");
