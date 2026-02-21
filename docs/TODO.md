@@ -25,3 +25,10 @@
 - [ ] Put logic from FindTakeaway.razor into FindTakeaway.razor.cs
 - [ ] Review and refactor code that has been added so far
 - [ ] Add Swagger Page
+- [ ] Ensure it can be run locally and on production
+- [ ] js file in wwwroot
+- [ ] Add security and contributing and CONTRIBUTORS files
+- [ ] and anything else to add like code of conduct
+- [ ] add comments like <param> 
+- [ ] fault tolerance / stuff that makes a good api
+- [ ] github docs
