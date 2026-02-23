@@ -21,14 +21,18 @@
 - [x] Implementation of Just Eat API
 - [x] Main feature of entering postcode and markers being added to map
 - [x] Click on marker and view more details
-- [ ] Fix GitHub pages deployment issues
-- [ ] Put logic from FindTakeaway.razor into FindTakeaway.razor.cs
+- [x] Fix GitHub pages deployment issues
+- [x] Put logic from FindTakeaway.razor into FindTakeaway.razor.cs
+- [ ] Update README
 - [ ] Review and refactor code that has been added so far
+- [ ] Shared Models project or stop reusing models from TakeawayFinder.Api
 - [ ] Add Swagger Page
 - [ ] Ensure it can be run locally and on production
 - [ ] js file in wwwroot
 - [ ] Add security and contributing and CONTRIBUTORS files
-- [ ] and anything else to add like code of conduct
-- [ ] add comments like <param> 
-- [ ] fault tolerance / stuff that makes a good api
-- [ ] github docs
+- [ ] Add anything else to add like code of conduct
+- [ ] Add comments like <param> 
+- [ ] Addfault tolerance / stuff that makes a good api
+- [ ] Add github docs
+- [ ] Move readme out of docs folder
+- [ ] Make UI nicer
