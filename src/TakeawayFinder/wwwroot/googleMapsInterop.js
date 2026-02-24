@@ -25,7 +25,7 @@ export async function initMapAsync(latitude, longitude, zoom) {
     map = new Map(document.getElementById("map"), {
         center: { lat: latitude, lng: longitude },
         zoom: zoom,
-        mapId: "MAP_ID"
+        mapId: "{MAP_ID}"
     });
     
     // const cityCircle = new Circle({
