@@ -27,12 +27,15 @@
 - [ ] Review and refactor code that has been added so far
 - [ ] Shared Models project or stop reusing models from TakeawayFinder.Api
 - [ ] Add Swagger Page
-- [ ] Ensure it can be run locally and on production
+- [ ] Ensure it can be run locally and on production - add to readme as well
 - [ ] js file in wwwroot
 - [ ] Add security and contributing and CONTRIBUTORS files
 - [ ] Add anything else to add like code of conduct
 - [ ] Add comments like <param> 
-- [ ] Addfault tolerance / stuff that makes a good api
+- [ ] Add fault tolerance / stuff that makes a good api
 - [ ] Add github docs
 - [ ] Move readme out of docs folder
+- [ ] Update Render deployment
+- [ ] Update docs 
 - [ ] Make UI nicer
+- [ ] Fix map clustering
