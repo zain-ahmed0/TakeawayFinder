@@ -19,5 +19,6 @@
   <Folder Name="/src/">
     <Project Path="src/TakeawayFinder/TakeawayFinder.csproj" />
     <Project Path="src/TakeawayFinder.Api/TakeawayFinder.Api.csproj" />
+    <Project Path="src/TakeawayFinder.Models/TakeawayFinder.Models.csproj" />
   </Folder>
 </Solution>

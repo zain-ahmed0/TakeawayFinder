@@ -5,15 +5,17 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["src/TakeawayFinder.Api/TakeawayFinder.Api.csproj", "."]
-RUN dotnet restore "./TakeawayFinder.Api.csproj"
-COPY ["src/TakeawayFinder.Api/", "."]
-WORKDIR "/src/."
-RUN dotnet build "./TakeawayFinder.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
+COPY ["src/TakeawayFinder.Api/TakeawayFinder.Api.csproj", "TakeawayFinder.Api/"]
+COPY ["src/TakeawayFinder.Models/TakeawayFinder.Models.csproj", "TakeawayFinder.Models/"]
+RUN dotnet restore "TakeawayFinder.Api/TakeawayFinder.Api.csproj"
+COPY ["src/TakeawayFinder.Api/", "TakeawayFinder.Api/"]
+COPY ["src/TakeawayFinder.Models/", "TakeawayFinder.Models/"]
+WORKDIR "/src/TakeawayFinder.Api"
+RUN dotnet build "TakeawayFinder.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./TakeawayFinder.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "TakeawayFinder.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app

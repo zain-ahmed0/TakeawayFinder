@@ -1,6 +1,6 @@
 using System.Text.Json;
 using TakeawayFinder.Api;
-using TakeawayFinder.Api.Dtos;
+using TakeawayFinder.Models;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 

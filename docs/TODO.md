@@ -1,6 +1,6 @@
 # To do:
 
-- [ ] Decide to use another project for Shared Models and sort out Models for each project
+- [x] Move Models and Dtos to a new project e.g `TakeawayFinder.Models` and fix the deployment issue that might occur with that change
 - [ ] Refactor code to be best practice and add comments
   - [ ] Refactor TakeawayFinder Project
     - [ ] Refactor `GoogleMapsInterop.cs`
@@ -25,4 +25,6 @@
   - [ ] Decide to keep README in the docs folder or outside the folder
   - [ ] Update `ARCHITECTURE.md` and add diagrams
   - [ ] Add other GitHub files e.g `SECURITY.md`, `CONTRIBUTING.md`, `CONTRIBUTORS.md`, `CODE_OF_CONDUCT.md`
+  - [ ] Update `.csproj` files
 - [ ] Final cleanup of code use Rider to format code
+  - [ ] Fix build warnings
