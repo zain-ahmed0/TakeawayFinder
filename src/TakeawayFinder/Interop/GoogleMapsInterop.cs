@@ -16,7 +16,7 @@ public class GoogleMapsInterop : IGoogleMapsInterop, IAsyncDisposable
     private async Task EnsureModuleAsync()
     {
         _module ??= await _jsRuntime.InvokeAsync<IJSObjectReference>(
-            "import", "./googleMapsInterop.js");
+            "import", "./js/googleMapsInterop.js");
 
         if (_module is null)
         {

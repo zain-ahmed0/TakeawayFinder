@@ -10,7 +10,7 @@
     - [x] Refactor `FindTakeaway.razor.css`
     - [x] Refactor `GoogleMapsService.cs`
     - [x] Refactor `IGoogleMapsService.cs`
-    - [ ] Move googleMapsInterop.js into `wwwroot/js`
+    - [x] Move `googleMapsInterop.js` into `wwwroot/js`
     - [ ] Refactor `googleMapsInterop.js` and implement map clustering
     - [ ] Refactor index.html
   - Refactor TakeawayFinderApi project
