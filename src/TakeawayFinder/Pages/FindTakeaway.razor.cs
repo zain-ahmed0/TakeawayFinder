@@ -7,7 +7,7 @@ namespace TakeawayFinder.Pages;
 
 public partial class FindTakeaway : ComponentBase
 {
-    [Inject] private GoogleMapsService GoogleMapsService { get; set; }
+    [Inject] private IGoogleMapsService GoogleMapsService { get; set; }
     [Inject] private HttpClient client { get; set; }
     
     public static string? submittedPostcode = string.Empty;

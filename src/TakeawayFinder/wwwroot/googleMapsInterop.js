@@ -66,11 +66,11 @@ export async function initMapAsync(latitude, longitude, zoom) {
 //     });
 // }
 
-export async function addMarkerAsync(restaurant) {
+export async function addMarkerAsync(restaurants) {
     const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
     const { InfoWindow } = await google.maps.importLibrary("maps");
 
-    restaurant.forEach(r => {
+    restaurants.forEach(r => {
         const marker = new AdvancedMarkerElement({
             map,
             position: { lat: r.address.latitude, lng: r.address.longitude },
