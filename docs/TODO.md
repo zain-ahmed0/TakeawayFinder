@@ -1,19 +1,19 @@
 # To do:
 
 - [x] Move Models and Dtos to a new project e.g `TakeawayFinder.Models` and fix the deployment issue that might occur with that change
-- [ ] Refactor code to be best practice
-  - [ ] Refactor TakeawayFinder Project
+- Refactor code to be best practice
+  - Refactor TakeawayFinder Project
     - [x] Refactor `GoogleMapsInterop.cs`
     - [x] Refactor `IGoogleMapsInterop.cs`
-    - [ ] Refactor `FindTakeaway.Razor` and UI (Best practices for a HTML page)
-    - [ ] Refactor `FindTakeaway.razor.cs`
-    - [ ] Refactor `FindTakeaway.razor.css`
-    - [ ] Refactor `Home.razor` and UI (Best practices for a HTML page)
+    - [x] Refactor `FindTakeaway.Razor`
+    - [x] Refactor `FindTakeaway.razor.cs`
+    - [x] Refactor `FindTakeaway.razor.css`
     - [x] Refactor `GoogleMapsService.cs`
     - [x] Refactor `IGoogleMapsService.cs`
     - [ ] Move googleMapsInterop.js into `wwwroot/js`
     - [ ] Refactor `googleMapsInterop.js` and implement map clustering
-  - [ ] Refactor TakeawayFinderApi project
+    - [ ] Refactor index.html
+  - Refactor TakeawayFinderApi project
     - [ ] Refactor Dtos
     - [ ] Refactor `IJustEatApiService.cs`
     - [ ] Refactor `JustEatApiService.cs`
@@ -22,12 +22,19 @@
 - [ ] Update deployment
 - [ ] Allow project to be run locally and on GitHub Pages
   - [ ] Perhaps some code that detects that if it's on GitHub Pages some text is displayed warning a user
-- [ ] Update documentation
+- Update documentation
   - [ ] Decide to keep README in the docs folder or outside the folder
   - [ ] Update `ARCHITECTURE.md` and add diagrams
   - [ ] Add other GitHub files e.g `SECURITY.md`, `CONTRIBUTING.md`, `CONTRIBUTORS.md`, `CODE_OF_CONDUCT.md`
   - [ ] Update `.csproj` files
   - [ ] Add `TakeawayFinder.API` URL  in `README.md`
-- [ ] Final cleanup of code use Rider to format code
+- [ ] Final cleanup
+  - [ ] Rider code format
   - [ ] Fix build warnings
   - [ ] XML comments
+  - [ ] Indentation
+  - [ ] Inline properties are in same order
+  - [ ] Edit css for the Postcode card
+  - [ ] Input validation for postcode
+  - [ ] Search through URL
+  - [ ] Clean up UI

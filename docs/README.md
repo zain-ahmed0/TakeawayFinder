@@ -34,7 +34,7 @@ A web application that helps users find nearby takeaway restaurants using Google
     - Enter details and choose **JavaScript** as the Map type and **Vector**
 
 5. **Add Credentials to the Project**
-    - In `TakeawayFinder/Pages/FindTakeaway.razor`, replace `{GOOGLE_MAPS_API_KEY}` with your Google Maps API Key.
+    - In `TakeawayFinder/wwwroot/index.html`, replace `{GOOGLE_MAPS_API_KEY}` with your Google Maps API Key.
     - In `TakeawayFinder/wwwroot/js/googleMapsInterop.js`, replace `{MAP_ID}` with your Map ID.
 
 ## Running the Project Locally
@@ -52,6 +52,8 @@ dotnet run
 
 ### Run the Backend locally
 
+Alternatively, you can just run the Frontend as the Backend is hosted on Render.
+
 ```bash
 cd TakeawayFinder.Api
 dotnet run
@@ -63,6 +65,4 @@ Once running, open your browser at:
 http://localhost:5273
 ```
 
-To use the website, go to the **Find Takeaway** page and enter a UK postcode to view nearby restaurants. 
-
-Alternatively, you can just run the Frontend as the Backend is hosted on Render.
+To use the website, go to the **Find Takeaway** page and enter a UK postcode and press search.

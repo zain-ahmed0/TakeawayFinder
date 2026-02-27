@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
 using Microsoft.AspNetCore.Components;
 using TakeawayFinder.Services;
@@ -7,31 +8,10 @@ namespace TakeawayFinder.Pages;
 
 public partial class FindTakeaway : ComponentBase
 {
-    [Inject] private IGoogleMapsService GoogleMapsService { get; set; }
-    [Inject] private HttpClient client { get; set; }
+    [Inject] private IGoogleMapsService GoogleMapsService { get; set; } = default!;
+    [Inject] private HttpClient Client { get; set; } = default!;
     
-    public static string? submittedPostcode = string.Empty;
-    private static string? postcode = string.Empty;
-    
-    private void SubmitPostcode()
-    {
-        postcode = submittedPostcode;
-
-        GetData();
-
-        SerializeData();
-
-        submittedPostcode = string.Empty;
-    }
-    
-    private async Task<String> GetData()
-    {
-        using HttpResponseMessage response = await client.GetAsync($"https://takeaway-finder.onrender.com/{postcode}");
-        
-        string responseBody = await response.Content.ReadAsStringAsync();
-
-        return responseBody;
-    }
+    private PostcodeSearchModel SearchModel { get; set; } = new();
     
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -41,19 +21,39 @@ public partial class FindTakeaway : ComponentBase
         }
     }
     
-    private async Task SerializeData()
+    private async Task SubmitPostcode()
     {
-        string data = await GetData();
-            
-        var result = JsonSerializer.Deserialize<List<RestaurantDto>>(
-            data,
-            new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-            
-        // foreach (var restaurant in result)
-        // {
-        //     await GoogleMapsService.AddMarkerAsync(restaurant.Address.Latitude, restaurant.Address.Longitude, restaurant.Name, restaurant.Url);
-        // }
+        try
+        {
+            var postcode = SearchModel.Postcode!.Trim();
 
-        await GoogleMapsService.AddMarkerAsync(result);
+            using HttpResponseMessage response =
+                await Client.GetAsync($"https://takeaway-finder.onrender.com/{Uri.EscapeUriString(postcode)}");
+
+            var responseBody = await response.Content.ReadAsStringAsync();
+
+            var restaurants = JsonSerializer.Deserialize<List<RestaurantDto>>(responseBody,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+            if (restaurants is { Count: > 0 })
+            {
+                await GoogleMapsService.AddMarkerAsync(restaurants);
+            }
+        }
+        catch (HttpRequestException)
+        {
+            Console.WriteLine("Failed to reach the server.");
+        }
+        catch (JsonException)
+        {
+            Console.WriteLine("Failed to parse the response.");
+        }
+    }
+
+    public class PostcodeSearchModel
+    {
+        [Required(ErrorMessage = "Please enter a postcode.")]
+        [StringLength(8)]
+        public string? Postcode { get; set; }
     }
 }

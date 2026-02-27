@@ -2,19 +2,31 @@
 
 <PageTitle>Find Takeaway</PageTitle>
 
-<script async src="https://maps.googleapis.com/maps/api/js?key={GOOGLE_MAPS_API_KEY}"></script>
+<h1>Find Takeaway</h1>
 
-<h3>Find Takeaway</h3>
-
-<h4>Enter your postcode:</h4>
-
-<div class="input-group row g-3 mb-3">
-    <div class="col-sm-1">
-        <input @bind="submittedPostcode" class="form-control" autocomplete="off" maxlength="8" autofocus placeholder="Postcode" aria-label="Enter postcode to search" type="text">
-    </div>
-    <div class="col-auto">
-        <button @onclick="SubmitPostcode" type="button" class="btn btn-primary mb-3">Submit</button>
+<div class="card mb-4">
+    <div class="card-body">
+        <EditForm Model="SearchModel" OnValidSubmit="SubmitPostcode">
+            <DataAnnotationsValidator/>
+            <div class="row g-3 align-items-end">
+                <div class="col-md-6 col-lg-4">
+                    <label for="postcode" class="form-label">Enter Postcode:</label>
+                    <InputText
+                        id="postcode"
+                        @bind-Value="SearchModel!.Postcode"
+                        class="form-control"
+                        autocomplete="off"
+                        maxlength="8"
+                        placeholder="e.g EC4M 7RF"
+                        aria-describedby="postcode-validation"/>
+                    <ValidationMessage For="() => SearchModel!.Postcode" id="postcode-validation"/>
+                </div>
+            </div>
+            <div class="col-auto mt-1">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </EditForm>
     </div>
 </div>
 
-<div id="map" style="height: 500px; width: 100%;"></div>
+<div id="map" class="map" role="application" aria-label="Map"></div>
