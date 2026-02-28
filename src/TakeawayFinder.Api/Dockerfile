@@ -5,6 +5,7 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
+COPY ["Directory.Packages.props", "."]
 COPY ["src/TakeawayFinder.Api/TakeawayFinder.Api.csproj", "TakeawayFinder.Api/"]
 COPY ["src/TakeawayFinder.Models/TakeawayFinder.Models.csproj", "TakeawayFinder.Models/"]
 RUN dotnet restore "TakeawayFinder.Api/TakeawayFinder.Api.csproj"
