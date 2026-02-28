@@ -1,7 +1,8 @@
-namespace TakeawayFinder.Api;
+using TakeawayFinder.Models;
+
+namespace TakeawayFinder.Api.Services;
 
 public interface IJustEatApiService
 {
-    static abstract Task<String> GetData(
-        string postcode);
+    Task<JustEatResponseDto?> GetRestaurantsByPostcodeAsync(string postcode);
 }

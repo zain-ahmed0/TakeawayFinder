@@ -2,7 +2,7 @@
 
 - [x] Move Models and Dtos to a new project e.g `TakeawayFinder.Models` and fix the deployment issue that might occur with that change
 - Refactor code to be best practice
-  - Refactor TakeawayFinder Project
+  - Refactor `TakeawayFinder` Project
     - [x] Refactor `GoogleMapsInterop.cs`
     - [x] Refactor `IGoogleMapsInterop.cs`
     - [x] Refactor `FindTakeaway.Razor`
@@ -13,12 +13,14 @@
     - [x] Move `googleMapsInterop.js` into `wwwroot/js`
     - [ ] Refactor `googleMapsInterop.js` and implement map clustering
     - [ ] Refactor index.html
-  - Refactor TakeawayFinderApi project
-    - [ ] Refactor Dtos
-    - [ ] Refactor `IJustEatApiService.cs`
-    - [ ] Refactor `JustEatApiService.cs`
+  - Refactor `TakeawayFinder.Api` project
+    - [x] Refactor `IJustEatApiService.cs`
+    - [x] Refactor `JustEatApiService.cs`
+    - [ ] Refactor Program.cs
     - [ ] Add Swagger Page
     - [ ] Add fault tolerance e.g retrying / best practices for an API
+  - Refactor `TakeawayFinder.Models`
+    - [ ] Refactor Models
 - [ ] Update deployment
 - [ ] Allow project to be run locally and on GitHub Pages
   - [ ] Perhaps some code that detects that if it's on GitHub Pages some text is displayed warning a user
@@ -38,3 +40,4 @@
   - [ ] Input validation for postcode
   - [ ] Search through URL
   - [ ] Clean up UI
+  - [ ] Rename method in `FindTakeaway.razor.cs`
