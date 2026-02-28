@@ -16,7 +16,7 @@
   - Refactor `TakeawayFinder.Api` project
     - [x] Refactor `IJustEatApiService.cs`
     - [x] Refactor `JustEatApiService.cs`
-    - [ ] Refactor Program.cs
+    - [x] Refactor Program.cs
     - [ ] Add Swagger Page
     - [ ] Add fault tolerance e.g retrying / best practices for an API
   - Refactor `TakeawayFinder.Models`
