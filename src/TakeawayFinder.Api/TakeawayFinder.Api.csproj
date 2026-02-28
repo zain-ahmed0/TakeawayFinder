@@ -5,9 +5,13 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Swashbuckle.AspNetCore" />
+    </ItemGroup>
     
     <ItemGroup>
       <ProjectReference Include="..\TakeawayFinder.Models\TakeawayFinder.Models.csproj" />
     </ItemGroup>
-
+    
 </Project>

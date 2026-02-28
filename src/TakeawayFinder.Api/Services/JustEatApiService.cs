@@ -18,7 +18,7 @@ public class JustEatApiService : IJustEatApiService
         _httpClient = httpClient;
         _logger = logger;
     }
-
+    
     public async Task<JustEatResponseDto?> GetRestaurantsByPostcodeAsync(string postcode)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(postcode);
@@ -33,7 +33,7 @@ public class JustEatApiService : IJustEatApiService
         }
         catch (HttpRequestException ex)
         {
-            _logger.LogError("Failed to fetch restaurants for postcode {Postcode}", postcode);
+            _logger.LogError(ex, "Failed to fetch restaurants for postcode {Postcode}", postcode);
             throw;
         }
     }

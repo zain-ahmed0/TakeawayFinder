@@ -17,7 +17,7 @@
     - [x] Refactor `IJustEatApiService.cs`
     - [x] Refactor `JustEatApiService.cs`
     - [x] Refactor Program.cs
-    - [ ] Add Swagger Page
+    - [x] Add Swagger Page
     - [ ] Add fault tolerance e.g retrying / best practices for an API
   - Refactor `TakeawayFinder.Models`
     - [ ] Refactor Models
@@ -41,3 +41,5 @@
   - [ ] Search through URL
   - [ ] Clean up UI
   - [ ] Rename method in `FindTakeaway.razor.cs`
+  - [ ] Add to Swagger UI
+  - [ ] Add API metadata for TakeawayFinder.Api
