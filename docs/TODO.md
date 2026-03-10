@@ -11,14 +11,15 @@
     - [x] Refactor `GoogleMapsService.cs`
     - [x] Refactor `IGoogleMapsService.cs`
     - [x] Move `googleMapsInterop.js` into `wwwroot/js`
-    - [ ] Refactor `googleMapsInterop.js` and implement map clustering
-    - [ ] Refactor index.html
+    - [x] Refactor `googleMapsInterop.js`
+    - [x] Implement map clustering
+    - [x] Refactor index.html
   - Refactor `TakeawayFinder.Api` project
     - [x] Refactor `IJustEatApiService.cs`
     - [x] Refactor `JustEatApiService.cs`
     - [x] Refactor Program.cs
     - [x] Add Swagger Page
-    - [ ] Add fault tolerance e.g retrying / best practices for an API
+    - [ ] Add fault tolerance e.g retrying / best practices for an API - Polly NuGet package
   - Refactor `TakeawayFinder.Models`
     - [ ] Refactor Models
 - [ ] Update deployment
