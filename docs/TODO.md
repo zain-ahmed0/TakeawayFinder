@@ -32,7 +32,7 @@
   - [ ] Update `.csproj` files
   - [ ] Add `TakeawayFinder.API` URL  in `README.md`
 - [ ] Final cleanup
-  - [ ] Rider code format
+  - [ ] Rider code format & Review code
   - [ ] Fix build warnings
   - [ ] XML comments
   - [ ] Indentation
@@ -44,3 +44,4 @@
   - [ ] Rename method in `FindTakeaway.razor.cs`
   - [ ] Add to Swagger UI
   - [ ] Add API metadata for TakeawayFinder.Api
+  - [ ] Create a copilot-instructions.md

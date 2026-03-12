@@ -3,7 +3,7 @@ using TakeawayFinder.Models;
 
 namespace TakeawayFinder.Api.Services;
 
-public class JustEatApiService : IJustEatApiService
+public partial class JustEatApiService : IJustEatApiService
 {
     private readonly HttpClient _httpClient;
     private readonly ILogger<JustEatApiService> _logger;
@@ -33,8 +33,14 @@ public class JustEatApiService : IJustEatApiService
         }
         catch (HttpRequestException ex)
         {
-            _logger.LogError(ex, "Failed to fetch restaurants for postcode {Postcode}", postcode);
+            Log.LogFetchRestaurantsFailed(_logger, postcode, ex);
             throw;
         }
+    }
+    
+    private static partial class Log
+    {
+        [LoggerMessage(1, LogLevel.Error, "Failed to fetch restaurants for postcode {Postcode}")]
+        public static partial void LogFetchRestaurantsFailed(ILogger logger, string postcode, Exception exception);
     }
 }
