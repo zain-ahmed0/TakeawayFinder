@@ -1,3 +1,5 @@
+using Polly.CircuitBreaker;
+using Polly.Timeout;
 using System.Text.Json;
 using TakeawayFinder.Models;
 
@@ -32,6 +34,16 @@ public partial class JustEatApiService : IJustEatApiService
             return JsonSerializer.Deserialize<JustEatResponseDto>(content, _options);
         }
         catch (HttpRequestException ex)
+        {
+            Log.LogFetchRestaurantsFailed(_logger, postcode, ex);
+            throw;
+        }
+        catch (TimeoutRejectedException ex)
+        {
+            Log.LogFetchRestaurantsFailed(_logger, postcode, ex);
+            throw;
+        }
+        catch (BrokenCircuitException ex)
         {
             Log.LogFetchRestaurantsFailed(_logger, postcode, ex);
             throw;

@@ -19,7 +19,7 @@
     - [x] Refactor `JustEatApiService.cs`
     - [x] Refactor Program.cs
     - [x] Add Swagger Page
-    - [ ] Add fault tolerance e.g retrying / best practices for an API - Polly NuGet package
+    - [x] Add fault tolerance
   - Refactor `TakeawayFinder.Models`
     - [ ] Refactor Models
 - [ ] Update deployment
