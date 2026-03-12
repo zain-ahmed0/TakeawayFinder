@@ -5,7 +5,7 @@ namespace TakeawayFinder.Models;
 public class Address
 {
     [JsonPropertyName("firstLine")]
-    public string FirstLine { get; set; }
+    public string? FirstLine { get; set; }
     
     [JsonPropertyName("latitude")]
     public double Latitude { get; set; }
