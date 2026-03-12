@@ -42,6 +42,7 @@
   - [ ] Search through URL
   - [ ] Clean up UI
   - [ ] Rename method in `FindTakeaway.razor.cs` - Maybe move logic into Services?
+  - [ ] Bug in TakeawayFinder.Api logs - Check Render
   - [ ] Add to Swagger UI
   - [ ] Add API metadata for TakeawayFinder.Api
   - [ ] Update AGENTS.md
