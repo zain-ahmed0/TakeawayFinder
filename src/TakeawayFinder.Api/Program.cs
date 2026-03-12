@@ -16,10 +16,11 @@ builder.Services.AddCors(options =>
         });
 });
 
-builder.Services.AddHttpClient<IJustEatApiService, JustEatApiService> (client =>
-{
-    client.BaseAddress = new Uri("https://uk.api.just-eat.io/");
-});
+builder.Services.AddHttpClient<IJustEatApiService, JustEatApiService>(client =>
+    {
+        client.BaseAddress = new Uri("https://uk.api.just-eat.io/");
+    })
+    .AddStandardResilienceHandler();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
