@@ -21,19 +21,19 @@
     - [x] Add Swagger Page
     - [x] Add fault tolerance
   - Refactor `TakeawayFinder.Models`
-    - [ ] Refactor Models
-- [ ] Update deployment
+    - [x] Refactor Models
+- [x] Update deployment
 - [ ] Allow project to be run locally and on GitHub Pages
   - [ ] Perhaps some code that detects that if it's on GitHub Pages some text is displayed warning a user
 - Update documentation
-  - [ ] Decide to keep README in the docs folder or outside the folder
+  - [x] Decide to keep README in the docs folder or outside the folder
   - [ ] Update `ARCHITECTURE.md` and add diagrams
   - [ ] Add other GitHub files e.g `SECURITY.md`, `CONTRIBUTING.md`, `CONTRIBUTORS.md`, `CODE_OF_CONDUCT.md`
   - [ ] Update `.csproj` files
-  - [ ] Add `TakeawayFinder.API` URL  in `README.md`
+  - [x] Add `TakeawayFinder.API` URL  in `README.md`
 - [ ] Final cleanup
   - [ ] Rider code format & Review code
-  - [ ] Fix build warnings
+  - [x] Fix build warnings
   - [ ] XML comments
   - [ ] Indentation
   - [ ] Inline properties are in same order
@@ -41,7 +41,7 @@
   - [ ] Input validation for postcode
   - [ ] Search through URL
   - [ ] Clean up UI
-  - [ ] Rename method in `FindTakeaway.razor.cs`
+  - [ ] Rename method in `FindTakeaway.razor.cs` - Maybe move logic into Services?
   - [ ] Add to Swagger UI
   - [ ] Add API metadata for TakeawayFinder.Api
-  - [ ] Create a copilot-instructions.md
+  - [ ] Update AGENTS.md
