@@ -36,7 +36,7 @@
   - [ ] Clean up UI
   - [ ] Rename method in `FindTakeaway.razor.cs` - Maybe move logic into Services? change endpoint to be restaurants/{postcode}
   - [ ] Bug in TakeawayFinder.Api logs - Check Render
-  - [ ] Add to Swagger UI
+  - [ ] Add to API UI
   - [ ] Add API metadata for TakeawayFinder.Api
   - [ ] Update AGENTS.md
   - [ ] Successful api call log?

@@ -1,4 +1,4 @@
-using Microsoft.OpenApi;
+using Scalar.AspNetCore;
 using TakeawayFinder.Api.Services;
 
 var myAllowSpecificOrigins = "_myAllowSpecificOrigins";
@@ -22,26 +22,9 @@ builder.Services.AddHttpClient<IJustEatApiService, JustEatApiService>(client =>
     })
     .AddStandardResilienceHandler();
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(options =>
-{
-    options.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Title = "TakeawayFinder API",
-        Version = "v1",
-        Description = "An API for finding takeaway restaurants by UK postcode via Just Eat Takeaway",
-        Contact = new OpenApiContact
-        {
-            Name = "Zain Ahmed",
-            Url = new Uri("https://github.com/zain-ahmed0/TakeawayFinder/"),
-        }
-    });
-});
+builder.Services.AddOpenApi();
 
 var app = builder.Build();
-
-app.UseSwagger();
-app.UseSwaggerUI();
 
 app.UseCors(myAllowSpecificOrigins);
 
@@ -51,5 +34,8 @@ app.MapGet("/{postcode}", async (string postcode, IJustEatApiService justEatApiS
     
     return Results.Ok(result?.Restaurants);
 }).RequireCors(myAllowSpecificOrigins);
+
+app.MapOpenApi();
+app.MapScalarApiReference();
 
 app.Run();
