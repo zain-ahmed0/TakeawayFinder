@@ -23,8 +23,6 @@ public partial class JustEatApiService : IJustEatApiService
     
     public async Task<JustEatResponseDto?> GetRestaurantsByPostcodeAsync(string postcode)
     {
-        ArgumentException.ThrowIfNullOrWhiteSpace(postcode);
-
         try
         {
             using HttpResponseMessage response = await _httpClient.GetAsync($"restaurants/bypostcode/{postcode}");

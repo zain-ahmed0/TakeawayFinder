@@ -1,5 +1,6 @@
 using Scalar.AspNetCore;
 using TakeawayFinder.Api.Services;
+using TakeawayFinder.Models;
 
 var myAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
@@ -22,20 +23,45 @@ builder.Services.AddHttpClient<IJustEatApiService, JustEatApiService>(client =>
     })
     .AddStandardResilienceHandler();
 
-builder.Services.AddOpenApi();
+builder.Services.AddOpenApi(options =>
+{
+    options.AddDocumentTransformer((document, context, cancellationToken) =>
+    {
+        document.Info = new()
+        {
+            Title = "Takeaway Finder API",
+            Version = "v1",
+            Description =
+                "API for discovering takeaway restaurants by UK postcode, powered by the Just Eat Takeaway API.",
+        };
+        return Task.CompletedTask;
+    });
+});
 
 var app = builder.Build();
 
 app.UseCors(myAllowSpecificOrigins);
 
-app.MapGet("/{postcode}", async (string postcode, IJustEatApiService justEatApiService) =>
+app.MapGet("/restaurants/bypostcode/{postcode}", async (string postcode, IJustEatApiService justEatApiService) =>
 {
+    if (postcode.Length > 8 || !postcode.All(c  => char.IsLetterOrDigit(c) || c == ' '))
+    {
+        return Results.BadRequest();
+    }
+    
     var result = await justEatApiService.GetRestaurantsByPostcodeAsync(postcode);
     
     return Results.Ok(result?.Restaurants);
-}).RequireCors(myAllowSpecificOrigins);
+})
+    .WithName("GetRestaurantsByPostcode")
+    .WithSummary("Get Restaurants by postcode")
+    .WithDescription("Returns a list of takeaway restaurants for a given UK postcode.")
+    .WithTags("Restaurants")
+    .Produces<IEnumerable<RestaurantDto>>(StatusCodes.Status200OK)
+    .ProducesProblem(StatusCodes.Status400BadRequest)
+    .RequireCors(myAllowSpecificOrigins);
 
 app.MapOpenApi();
-app.MapScalarApiReference();
+app.MapScalarApiReference("/docs");
 
 app.Run();

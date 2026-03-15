@@ -33,13 +33,13 @@ public partial class FindTakeaway : ComponentBase
         }
     }
     
-    private async Task SubmitPostcode()
+    private async Task SearchRestaurantsAsync()
     {
         try
         {
             var postcode = SearchModel.Postcode!.Trim();
 
-            using HttpResponseMessage response = await Client.GetAsync(Uri.EscapeDataString(postcode));
+            using HttpResponseMessage response = await Client.GetAsync($"restaurants/bypostcode/{Uri.EscapeDataString(postcode)}");
 
             var responseBody = await response.Content.ReadAsStringAsync();
 

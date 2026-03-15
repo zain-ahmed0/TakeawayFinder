@@ -5,3 +5,4 @@
 - Assume this is a production codebase
 - Always Look for any analyzers, source generators, or newer APIs/NuGet packages I should be using
 - Always review what you're about to suggest against the latest documentation
+- When asked to review code refer to the coding standards

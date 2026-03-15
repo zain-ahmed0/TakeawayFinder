@@ -52,7 +52,7 @@ dotnet run
 
 ### Run the Backend locally
 
-Alternatively, you can just run the Frontend as the Backend is hosted on Render. Check out the Scalar API docs [here](https://takeaway-finder.onrender.com/scalar)
+Alternatively, you can just run the Frontend as the Backend is hosted on Render. Check out the Scalar API docs [here](https://takeaway-finder.onrender.com/docs)
 
 ```bash
 cd TakeawayFinder.Api

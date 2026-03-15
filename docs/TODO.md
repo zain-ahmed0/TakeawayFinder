@@ -30,19 +30,20 @@
   - [x] Add `TakeawayFinder.API` URL  in `README.md`
 - Final cleanup
   - [x] Update `.csproj` files
-  - [x] Edit css for the Postcode card
+  - [x] Edit CSS for the Postcode card
   - [x] Input validation for postcode
-  - [ ] Search through URL
   - [x] Clean up UI
-  - [ ] Rename method in `FindTakeaway.razor.cs` - Maybe move logic into Services? change endpoint to be restaurants/{postcode}
-  - [ ] Bug in TakeawayFinder.Api logs - Check Render
-  - [ ] Add to API UI
-  - [ ] Add API metadata for TakeawayFinder.Api
-  - [ ] Update AGENTS.md
-  - [ ] Successful api call log?
-  - [ ] Rider code format & Review code - Do properties need to be in alphabetical order
+  - [x] Rename method in `FindTakeaway.razor.cs`
+  - [x] Change endpoint to be `restaurants/bypostcode/{postcode}`
+  - [x] Bug in `TakeawayFinder.Api` logs
+  - [x] Add to Scalar API UI
+  - [x] Add API metadata for TakeawayFinder.Api
+  - [ ] Order properties by meaning
+  - [ ] Enhance `TakeawayFinder.Api` - Error handling for 4xx and 5xx and logs for 2xx
+  - [ ] Move `FindTakeaway.razor.cs` API logic into Services
+  - [ ] Review code
   - [ ] Fix build warnings
-  - [ ] XML comments
-  - [ ] Indentation
-  - [ ] Inline properties are in same order
-  - [ ] Update `ARCHITECTURE.md` and add diagrams
+  - [ ] Format code with indentation
+  - [ ] Add XML comments
+  - [ ] Update `ARCHITECTURE.md` with file structure and sequence diagram
+  - [ ] DELETE AGENTS.md
