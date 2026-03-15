@@ -4,29 +4,36 @@
 
 <h1>Find Takeaway</h1>
 
-<div class="card mb-4">
-    <div class="card-body">
-        <EditForm Model="SearchModel" OnValidSubmit="SubmitPostcode">
-            <DataAnnotationsValidator/>
-            <div class="row g-3 align-items-end">
-                <div class="col-md-6 col-lg-4">
-                    <label for="postcode" class="form-label">Enter Postcode:</label>
-                    <InputText
-                        id="postcode"
-                        @bind-Value="SearchModel!.Postcode"
-                        class="form-control"
-                        autocomplete="off"
-                        maxlength="8"
-                        placeholder="e.g EC4M 7RF"
-                        aria-describedby="postcode-validation"/>
-                    <ValidationMessage For="() => SearchModel!.Postcode" id="postcode-validation"/>
+@if (!IsGitHubPages)
+{
+    <div class="card mb-4">
+        <div class="card-body">
+            <EditForm Model="SearchModel" OnValidSubmit="SubmitPostcode">
+                <DataAnnotationsValidator/>
+                <div class="row g-3 align-items-end">
+                    <div class="col-md-6 col-lg-4">
+                        <label for="postcode" class="form-label">Enter Postcode:</label>
+                        <InputText
+                            id="postcode"
+                            @bind-Value="SearchModel!.Postcode"
+                            class="form-control"
+                            autocomplete="off"
+                            maxlength="8"
+                            placeholder="e.g EC4M 7RF"
+                            aria-describedby="postcode-validation"/>
+                        <ValidationMessage For="() => SearchModel!.Postcode" id="postcode-validation"/>
+                    </div>
                 </div>
-            </div>
-            <div class="col-auto mt-1">
-                <button type="submit" class="btn btn-primary">Search</button>
-            </div>
-        </EditForm>
+                <div class="col-auto mt-1">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </EditForm>
+        </div>
     </div>
-</div>
-
-<div id="map" class="map" role="application" aria-label="Map"></div>
+    
+    <div id="map" class="map" role="application" aria-label="Map"></div>
+}
+else
+{
+    <h1>This is hosted on GitHub Pages. Run the project locally and enter your own details.</h1>   
+}

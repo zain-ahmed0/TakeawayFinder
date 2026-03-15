@@ -24,7 +24,7 @@
     - [x] Refactor Models
 - [x] Update deployment
 - [x] Allow project to be run locally and on GitHub Pages
-  - [ ] Perhaps some code that detects that if it's on GitHub Pages some text is displayed warning a user
+  - [x] Perhaps some code that detects that if it's on GitHub Pages some text is displayed warning a user
 - Update documentation
   - [x] Decide to keep README in the docs folder or outside the folder
   - [ ] Update `ARCHITECTURE.md` and add diagrams
@@ -32,7 +32,7 @@
   - [ ] Update `.csproj` files
   - [x] Add `TakeawayFinder.API` URL  in `README.md`
 - [ ] Final cleanup
-  - [ ] Rider code format & Review code
+  - [ ] Rider code format & Review code - Do properties need to be in alphabetical order
   - [x] Fix build warnings
   - [ ] XML comments
   - [ ] Indentation

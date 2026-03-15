@@ -8,16 +8,28 @@ namespace TakeawayFinder.Pages;
 
 public partial class FindTakeaway : ComponentBase
 {
+    [Inject] private NavigationManager NavigationManager { get; set; } = default!;
     [Inject] private IGoogleMapsService GoogleMapsService { get; set; } = default!;
     [Inject] private HttpClient Client { get; set; } = default!;
     
     private PostcodeSearchModel SearchModel { get; set; } = new();
+
+    private bool IsGitHubPages { get; set; }
     
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            await GoogleMapsService.InitMapAsync(51.53721, 0.04687, 10);
+            if (NavigationManager.BaseUri.Contains("github.io", StringComparison.OrdinalIgnoreCase))
+            {
+                Console.WriteLine("GitHub Pages");
+                IsGitHubPages = true;
+                StateHasChanged();
+            }
+            else
+            {
+                await GoogleMapsService.InitMapAsync(51.53721, 0.04687, 10);
+            }
         }
     }
     
