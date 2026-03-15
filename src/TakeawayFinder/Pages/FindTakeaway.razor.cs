@@ -27,8 +27,7 @@ public partial class FindTakeaway : ComponentBase
         {
             var postcode = SearchModel.Postcode!.Trim();
 
-            using HttpResponseMessage response =
-                await Client.GetAsync($"https://takeaway-finder.onrender.com/{Uri.EscapeDataString(postcode)}");
+            using HttpResponseMessage response = await Client.GetAsync(Uri.EscapeDataString(postcode));
 
             var responseBody = await response.Content.ReadAsStringAsync();
 

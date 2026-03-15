@@ -8,7 +8,9 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+var apiBaseUrl = builder.Configuration["TakeawayFinderApiUrl"] ?? throw new InvalidOperationException("TakeawayFinderApiUrl is not configured in appsettings.");
+
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(apiBaseUrl) });
 builder.Services.AddScoped<IGoogleMapsInterop, GoogleMapsInterop>();
 builder.Services.AddScoped<IGoogleMapsService, GoogleMapsService>();
 

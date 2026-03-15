@@ -23,7 +23,7 @@
   - Refactor `TakeawayFinder.Models`
     - [x] Refactor Models
 - [x] Update deployment
-- [ ] Allow project to be run locally and on GitHub Pages
+- [x] Allow project to be run locally and on GitHub Pages
   - [ ] Perhaps some code that detects that if it's on GitHub Pages some text is displayed warning a user
 - Update documentation
   - [x] Decide to keep README in the docs folder or outside the folder
@@ -41,8 +41,9 @@
   - [ ] Input validation for postcode
   - [ ] Search through URL
   - [ ] Clean up UI
-  - [ ] Rename method in `FindTakeaway.razor.cs` - Maybe move logic into Services?
+  - [ ] Rename method in `FindTakeaway.razor.cs` - Maybe move logic into Services? change endpoint to be restaurants/{postcode}
   - [ ] Bug in TakeawayFinder.Api logs - Check Render
   - [ ] Add to Swagger UI
   - [ ] Add API metadata for TakeawayFinder.Api
   - [ ] Update AGENTS.md
+  - [ ] Successful api call log?
