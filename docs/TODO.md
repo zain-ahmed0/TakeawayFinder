@@ -30,10 +30,10 @@
   - [x] Add `TakeawayFinder.API` URL  in `README.md`
 - Final cleanup
   - [x] Update `.csproj` files
-  - [ ] Edit css for the Postcode card
-  - [ ] Input validation for postcode
+  - [x] Edit css for the Postcode card
+  - [x] Input validation for postcode
   - [ ] Search through URL
-  - [ ] Clean up UI
+  - [x] Clean up UI
   - [ ] Rename method in `FindTakeaway.razor.cs` - Maybe move logic into Services? change endpoint to be restaurants/{postcode}
   - [ ] Bug in TakeawayFinder.Api logs - Check Render
   - [ ] Add to API UI
