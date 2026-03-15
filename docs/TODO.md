@@ -27,16 +27,9 @@
   - [x] Perhaps some code that detects that if it's on GitHub Pages some text is displayed warning a user
 - Update documentation
   - [x] Decide to keep README in the docs folder or outside the folder
-  - [ ] Update `ARCHITECTURE.md` and add diagrams
-  - [ ] Add other GitHub files e.g `SECURITY.md`, `CONTRIBUTING.md`, `CONTRIBUTORS.md`, `CODE_OF_CONDUCT.md`
-  - [ ] Update `.csproj` files
   - [x] Add `TakeawayFinder.API` URL  in `README.md`
-- [ ] Final cleanup
-  - [ ] Rider code format & Review code - Do properties need to be in alphabetical order
-  - [x] Fix build warnings
-  - [ ] XML comments
-  - [ ] Indentation
-  - [ ] Inline properties are in same order
+- Final cleanup
+  - [ ] Update `.csproj` files
   - [ ] Edit css for the Postcode card
   - [ ] Input validation for postcode
   - [ ] Search through URL
@@ -47,3 +40,9 @@
   - [ ] Add API metadata for TakeawayFinder.Api
   - [ ] Update AGENTS.md
   - [ ] Successful api call log?
+  - [ ] Rider code format & Review code - Do properties need to be in alphabetical order
+  - [ ] Fix build warnings
+  - [ ] XML comments
+  - [ ] Indentation
+  - [ ] Inline properties are in same order
+  - [ ] Update `ARCHITECTURE.md` and add diagrams
