@@ -29,7 +29,7 @@
   - [x] Decide to keep README in the docs folder or outside the folder
   - [x] Add `TakeawayFinder.API` URL  in `README.md`
 - Final cleanup
-  - [ ] Update `.csproj` files
+  - [x] Update `.csproj` files
   - [ ] Edit css for the Postcode card
   - [ ] Input validation for postcode
   - [ ] Search through URL
