@@ -1,4 +1,3 @@
-using Microsoft.OpenApi;
 using Scalar.AspNetCore;
 using TakeawayFinder.Api.Services;
 using TakeawayFinder.Models;
@@ -9,10 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(myAllowSpecificOrigins,
+    options.AddPolicy(name: myAllowSpecificOrigins,
         policy =>
         {
-            policy.WithOrigins("http://localhost:5273")
+            policy.WithOrigins("http://localhost:5273", "https://takeaway-finder.onrender.com")
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });
@@ -30,13 +29,14 @@ builder.Services.AddOpenApi(options =>
 {
     options.AddDocumentTransformer((document, context, cancellationToken) =>
     {
-        document.Info = new OpenApiInfo
+        document.Info = new()
         {
             Title = "Takeaway Finder API",
             Version = "v1",
             Description =
                 "API for discovering takeaway restaurants by UK postcode, powered by the Just Eat Takeaway API."
         };
+        document.Servers = [new() { Url = "https://takeaway-finder.onrender.com" }];
         return Task.CompletedTask;
     });
 });
