@@ -37,7 +37,7 @@ public partial class FindTakeaway : ComponentBase
         
         if (restaurants is { Count: > 0 })
         {
-            await GoogleMapsService.AddMarkerAsync(restaurants);
+            await GoogleMapsService.AddMarkersAsync(restaurants);
         }
     }
 

@@ -40,11 +40,10 @@
   - [x] Add API metadata for TakeawayFinder.Api
   - [x] Order properties by meaning
   - [x] Move `FindTakeaway.razor.cs` API logic into Services
-  - [ ] Review code
-  - [ ] Fix build warnings
+  - [x] Review code
+  - [x] Fix build warnings
   - [ ] Format code with indentation
   - [ ] Add XML comments
   - [ ] Update `ARCHITECTURE.md` with file structure and sequence diagram
   - [ ] DELETE AGENTS.md
-  - [ ] Update Dependabot
-  - [ ] README in docs folder
+  - [ ] Review dotnet scaffold project

@@ -33,7 +33,7 @@ public class GoogleMapsInterop : IGoogleMapsInterop, IAsyncDisposable
         }
     }
 
-    public async Task AddMarkerAsync(IEnumerable<RestaurantDto> restaurants)
+    public async Task AddMarkersAsync(IEnumerable<RestaurantDto> restaurants)
     {
         await EnsureModuleAsync();
         if (_module is not null)

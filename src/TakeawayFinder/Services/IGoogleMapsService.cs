@@ -9,6 +9,6 @@ public interface IGoogleMapsService
         double longitude,
         int zoom);
 
-    Task AddMarkerAsync(
+    Task AddMarkersAsync(
         IEnumerable<RestaurantDto> restaurants);
 }

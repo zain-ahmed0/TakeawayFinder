@@ -17,6 +17,8 @@ builder.Services.AddCors(options =>
         });
 });
 
+builder.Services.AddProblemDetails();
+
 builder.Services.AddHttpClient<IJustEatApiService, JustEatApiService>(client =>
     {
         client.BaseAddress = new Uri("https://uk.api.just-eat.io/");
@@ -46,12 +48,14 @@ app.MapGet("/restaurants/bypostcode/{postcode}", async (string postcode, IJustEa
 {
     if (postcode.Length > 8 || !postcode.All(c  => char.IsLetterOrDigit(c) || c == ' '))
     {
-        return Results.BadRequest();
+        return Results.Problem(
+            detail: "The postcode provided is not a valid UK postcode.",
+            statusCode: StatusCodes.Status400BadRequest);
     }
     
     var result = await justEatApiService.GetRestaurantsByPostcodeAsync(postcode);
     
-    return Results.Ok(result?.Restaurants);
+    return Results.Ok(result?.Restaurants ?? []);
 })
     .WithName("GetRestaurantsByPostcode")
     .WithSummary("Get Restaurants by postcode")

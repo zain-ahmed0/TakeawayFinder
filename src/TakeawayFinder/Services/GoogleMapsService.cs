@@ -17,8 +17,8 @@ public class GoogleMapsService : IGoogleMapsService
         await _interop.InitMapAsync(latitude, longitude, zoom);
     }
 
-    public async Task AddMarkerAsync(IEnumerable<RestaurantDto> restaurants)
+    public async Task AddMarkersAsync(IEnumerable<RestaurantDto> restaurants)
     {
-        await _interop.AddMarkerAsync(restaurants);
+        await _interop.AddMarkersAsync(restaurants);
     }
 }

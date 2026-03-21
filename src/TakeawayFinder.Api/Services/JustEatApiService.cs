@@ -9,12 +9,7 @@ public partial class JustEatApiService : IJustEatApiService
 {
     private readonly HttpClient _httpClient;
     private readonly ILogger<JustEatApiService> _logger;
-
-    private static readonly JsonSerializerOptions _options = new()
-    {
-        PropertyNameCaseInsensitive = true
-    };
-
+    
     public JustEatApiService(HttpClient httpClient, ILogger<JustEatApiService> logger)
     {
         _httpClient = httpClient;
@@ -29,7 +24,7 @@ public partial class JustEatApiService : IJustEatApiService
             response.EnsureSuccessStatusCode();
 
             var content = await response.Content.ReadAsStringAsync();
-            return JsonSerializer.Deserialize<JustEatResponseDto>(content, _options);
+            return JsonSerializer.Deserialize<JustEatResponseDto>(content, JsonSerializerOptions.Web);
         }
         catch (HttpRequestException ex)
         {
