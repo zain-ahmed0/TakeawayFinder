@@ -5,7 +5,7 @@
 ```
 TakeawayFinder/
 │
-├── src/
+└── src/
     ├── TakeawayFinder/                     # Blazor WebAssembly Frontend
     │   ├── Program.cs                      # Entry point: configures DI, HttpClient, services
     │   ├── Pages/
