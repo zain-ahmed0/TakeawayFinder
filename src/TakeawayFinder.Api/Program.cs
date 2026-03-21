@@ -11,7 +11,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: myAllowSpecificOrigins,
         policy =>
         {
-            policy.WithOrigins("http://localhost:5273", "https://takeaway-finder.onrender.com")
+            policy.WithOrigins("http://localhost:5273", "http://localhost:5101", "https://takeaway-finder.onrender.com")
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });
@@ -36,7 +36,10 @@ builder.Services.AddOpenApi(options =>
             Description =
                 "API for discovering takeaway restaurants by UK postcode, powered by the Just Eat Takeaway API."
         };
-        document.Servers = [new() { Url = "https://takeaway-finder.onrender.com" }];
+        if (!builder.Environment.IsDevelopment())
+        {
+            document.Servers = [new() { Url = "https://takeaway-finder.onrender.com" }];
+        }
         return Task.CompletedTask;
     });
 });
