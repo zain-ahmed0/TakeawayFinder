@@ -54,18 +54,11 @@ dotnet run
 
 ### Run the Backend locally
 
-Alternatively, you can just run the Frontend as the Backend is hosted on Render. Check out the Scalar API
-docs [here](https://takeaway-finder.onrender.com/docs)
-
 ```bash
 cd TakeawayFinder.Api
 dotnet run
 ```
 
-Once running, open your browser at:
-
-```
-http://localhost:5273
-```
+Check out the Scalar API docs [here](https://takeaway-finder.onrender.com/docs)
 
 To use the website, go to the **Find Takeaway** page and enter a UK postcode and press search.
