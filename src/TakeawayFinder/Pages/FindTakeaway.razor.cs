@@ -9,10 +9,10 @@ public partial class FindTakeaway : ComponentBase
     [Inject] private NavigationManager NavigationManager { get; set; } = default!;
     [Inject] private IGoogleMapsService GoogleMapsService { get; set; } = default!;
     [Inject] private ITakeawayFinderApiService TakeawayFinderApiService { get; set; } = default!;
-    
-    private PostcodeSearchModel SearchModel { get; set; } = new();
+
+    private PostcodeSearchModel SearchModel { get; } = new();
     private bool IsDeployedOnGitHubPages { get; set; }
-    
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -32,13 +32,10 @@ public partial class FindTakeaway : ComponentBase
     private async Task SearchRestaurantsAsync()
     {
         var postcode = SearchModel.Postcode!.Trim();
-        
+
         var restaurants = await TakeawayFinderApiService.GetRestaurantsByPostcodeAsync(postcode);
-        
-        if (restaurants is { Count: > 0 })
-        {
-            await GoogleMapsService.AddMarkersAsync(restaurants);
-        }
+
+        if (restaurants is { Count: > 0 }) await GoogleMapsService.AddMarkersAsync(restaurants);
     }
 
     public class PostcodeSearchModel

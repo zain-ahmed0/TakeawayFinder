@@ -8,7 +8,8 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-var apiBaseUrl = builder.Configuration["TakeawayFinderApiUrl"] ?? throw new InvalidOperationException("TakeawayFinderApiUrl is not configured in appsettings.");
+var apiBaseUrl = builder.Configuration["TakeawayFinderApiUrl"] ??
+                 throw new InvalidOperationException("TakeawayFinderApiUrl is not configured in appsettings.");
 
 builder.Services.AddHttpClient<ITakeawayFinderApiService, TakeawayFinderApiService>(client =>
 {

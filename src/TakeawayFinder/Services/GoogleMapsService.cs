@@ -6,7 +6,7 @@ namespace TakeawayFinder.Services;
 public class GoogleMapsService : IGoogleMapsService
 {
     private readonly IGoogleMapsInterop _interop;
-    
+
     public GoogleMapsService(IGoogleMapsInterop interop)
     {
         _interop = interop;

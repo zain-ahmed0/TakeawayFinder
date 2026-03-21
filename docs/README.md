@@ -1,6 +1,7 @@
 # Takeaway Finder
 
-A web application that helps users find nearby takeaway restaurants using Google Maps integration and the Just Eat Takeaway API.
+A web application that helps users find nearby takeaway restaurants using Google Maps integration and the Just Eat
+Takeaway API.
 
 ## Prerequisites
 
@@ -40,6 +41,7 @@ A web application that helps users find nearby takeaway restaurants using Google
 ## Running the Project Locally
 
 The solution contains two projects:
+
 - `TakeawayFinder` (Frontend)
 - `TakeawayFinder.Api` (Backend)
 
@@ -52,7 +54,8 @@ dotnet run
 
 ### Run the Backend locally
 
-Alternatively, you can just run the Frontend as the Backend is hosted on Render. Check out the Scalar API docs [here](https://takeaway-finder.onrender.com/docs)
+Alternatively, you can just run the Frontend as the Backend is hosted on Render. Check out the Scalar API
+docs [here](https://takeaway-finder.onrender.com/docs)
 
 ```bash
 cd TakeawayFinder.Api

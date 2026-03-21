@@ -46,4 +46,3 @@
   - [ ] Add XML comments
   - [ ] Update `ARCHITECTURE.md` with file structure and sequence diagram
   - [ ] DELETE AGENTS.md
-  - [ ] Review dotnet scaffold project

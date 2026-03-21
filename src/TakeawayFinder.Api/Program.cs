@@ -1,3 +1,4 @@
+using Microsoft.OpenApi;
 using Scalar.AspNetCore;
 using TakeawayFinder.Api.Services;
 using TakeawayFinder.Models;
@@ -8,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name: myAllowSpecificOrigins,
+    options.AddPolicy(myAllowSpecificOrigins,
         policy =>
         {
             policy.WithOrigins("http://localhost:5273")
@@ -29,12 +30,12 @@ builder.Services.AddOpenApi(options =>
 {
     options.AddDocumentTransformer((document, context, cancellationToken) =>
     {
-        document.Info = new()
+        document.Info = new OpenApiInfo
         {
             Title = "Takeaway Finder API",
             Version = "v1",
             Description =
-                "API for discovering takeaway restaurants by UK postcode, powered by the Just Eat Takeaway API.",
+                "API for discovering takeaway restaurants by UK postcode, powered by the Just Eat Takeaway API."
         };
         return Task.CompletedTask;
     });
@@ -45,23 +46,21 @@ var app = builder.Build();
 app.UseCors(myAllowSpecificOrigins);
 
 app.MapGet("/restaurants/bypostcode/{postcode}", async (string postcode, IJustEatApiService justEatApiService) =>
-{
-    if (postcode.Length > 8 || !postcode.All(c  => char.IsLetterOrDigit(c) || c == ' '))
     {
-        return Results.Problem(
-            detail: "The postcode provided is not a valid UK postcode.",
-            statusCode: StatusCodes.Status400BadRequest);
-    }
-    
-    var result = await justEatApiService.GetRestaurantsByPostcodeAsync(postcode);
-    
-    return Results.Ok(result?.Restaurants ?? []);
-})
+        if (postcode.Length > 8 || !postcode.All(c => char.IsLetterOrDigit(c) || c == ' '))
+            return Results.Problem(
+                "The postcode provided is not a valid UK postcode.",
+                statusCode: StatusCodes.Status400BadRequest);
+
+        var result = await justEatApiService.GetRestaurantsByPostcodeAsync(postcode);
+
+        return Results.Ok(result?.Restaurants ?? []);
+    })
     .WithName("GetRestaurantsByPostcode")
     .WithSummary("Get Restaurants by postcode")
     .WithDescription("Returns a list of takeaway restaurants for a given UK postcode.")
     .WithTags("Restaurants")
-    .Produces<IEnumerable<RestaurantDto>>(StatusCodes.Status200OK)
+    .Produces<IEnumerable<RestaurantDto>>()
     .ProducesProblem(StatusCodes.Status400BadRequest)
     .RequireCors(myAllowSpecificOrigins);
 

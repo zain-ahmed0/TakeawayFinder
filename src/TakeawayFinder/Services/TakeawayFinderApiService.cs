@@ -7,7 +7,7 @@ public partial class TakeawayFinderApiService : ITakeawayFinderApiService
 {
     private readonly HttpClient _httpClient;
     private readonly ILogger<TakeawayFinderApiService> _logger;
-    
+
     public TakeawayFinderApiService(HttpClient httpClient, ILogger<TakeawayFinderApiService> logger)
     {
         _httpClient = httpClient;
@@ -18,7 +18,8 @@ public partial class TakeawayFinderApiService : ITakeawayFinderApiService
     {
         try
         {
-            return await _httpClient.GetFromJsonAsync<List<RestaurantDto>>($"restaurants/bypostcode/{Uri.EscapeDataString(postcode)}");
+            return await _httpClient.GetFromJsonAsync<List<RestaurantDto>>(
+                $"restaurants/bypostcode/{Uri.EscapeDataString(postcode)}");
         }
         catch (HttpRequestException ex)
         {
