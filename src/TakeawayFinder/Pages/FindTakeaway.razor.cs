@@ -1,8 +1,6 @@
 using System.ComponentModel.DataAnnotations;
-using System.Text.Json;
 using Microsoft.AspNetCore.Components;
 using TakeawayFinder.Services;
-using TakeawayFinder.Models;
 
 namespace TakeawayFinder.Pages;
 
@@ -10,7 +8,7 @@ public partial class FindTakeaway : ComponentBase
 {
     [Inject] private NavigationManager NavigationManager { get; set; } = default!;
     [Inject] private IGoogleMapsService GoogleMapsService { get; set; } = default!;
-    [Inject] private HttpClient Client { get; set; } = default!;
+    [Inject] private ITakeawayFinderApiService TakeawayFinderApiService { get; set; } = default!;
     
     private PostcodeSearchModel SearchModel { get; set; } = new();
     private bool IsDeployedOnGitHubPages { get; set; }
@@ -30,32 +28,16 @@ public partial class FindTakeaway : ComponentBase
             }
         }
     }
-    
+
     private async Task SearchRestaurantsAsync()
     {
-        try
+        var postcode = SearchModel.Postcode!.Trim();
+        
+        var restaurants = await TakeawayFinderApiService.GetRestaurantsByPostcodeAsync(postcode);
+        
+        if (restaurants is { Count: > 0 })
         {
-            var postcode = SearchModel.Postcode!.Trim();
-
-            using HttpResponseMessage response = await Client.GetAsync($"restaurants/bypostcode/{Uri.EscapeDataString(postcode)}");
-
-            var responseBody = await response.Content.ReadAsStringAsync();
-
-            var restaurants = JsonSerializer.Deserialize<List<RestaurantDto>>(responseBody,
-                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-
-            if (restaurants is { Count: > 0 })
-            {
-                await GoogleMapsService.AddMarkerAsync(restaurants);
-            }
-        }
-        catch (HttpRequestException)
-        {
-            Console.WriteLine("Failed to reach the server.");
-        }
-        catch (JsonException)
-        {
-            Console.WriteLine("Failed to parse the response.");
+            await GoogleMapsService.AddMarkerAsync(restaurants);
         }
     }
 

@@ -38,12 +38,13 @@
   - [x] Bug in `TakeawayFinder.Api` logs
   - [x] Add to Scalar API UI
   - [x] Add API metadata for TakeawayFinder.Api
-  - [ ] Order properties by meaning
-  - [ ] Enhance `TakeawayFinder.Api` - Error handling for 4xx and 5xx and logs for 2xx
-  - [ ] Move `FindTakeaway.razor.cs` API logic into Services
+  - [x] Order properties by meaning
+  - [x] Move `FindTakeaway.razor.cs` API logic into Services
   - [ ] Review code
   - [ ] Fix build warnings
   - [ ] Format code with indentation
   - [ ] Add XML comments
   - [ ] Update `ARCHITECTURE.md` with file structure and sequence diagram
   - [ ] DELETE AGENTS.md
+  - [ ] Update Dependabot
+  - [ ] README in docs folder
