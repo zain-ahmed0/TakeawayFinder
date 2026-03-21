@@ -13,8 +13,7 @@ public partial class FindTakeaway : ComponentBase
     [Inject] private HttpClient Client { get; set; } = default!;
     
     private PostcodeSearchModel SearchModel { get; set; } = new();
-
-    private bool IsGitHubPages { get; set; }
+    private bool IsDeployedOnGitHubPages { get; set; }
     
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -22,8 +21,7 @@ public partial class FindTakeaway : ComponentBase
         {
             if (NavigationManager.BaseUri.Contains("github.io", StringComparison.OrdinalIgnoreCase))
             {
-                Console.WriteLine("GitHub Pages");
-                IsGitHubPages = true;
+                IsDeployedOnGitHubPages = true;
                 StateHasChanged();
             }
             else
