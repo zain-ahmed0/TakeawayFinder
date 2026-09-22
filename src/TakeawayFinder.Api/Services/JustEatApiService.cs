@@ -20,7 +20,7 @@ public partial class JustEatApiService : IJustEatApiService
     {
         try
         {
-            using var response = await _httpClient.GetAsync($"restaurants/bypostcode/{postcode}");
+            using var response = await _httpClient.GetAsync($"/discovery/uk/restaurants/enriched/bypostcode/{postcode}");
             response.EnsureSuccessStatusCode();
 
             var content = await response.Content.ReadAsStringAsync();
