@@ -64,8 +64,8 @@ export const addMarkerAsync = async (restaurants) => {
     for (const restaurant of restaurants) {
         const marker = new AdvancedMarkerElement({
             position: {
-                lat: restaurant.address.latitude,
-                lng: restaurant.address.longitude
+                lat: restaurant.address.location.coordinates[1],
+                lng: restaurant.address.location.coordinates[0]
             },
             title: restaurant.name,
         });
