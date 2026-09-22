@@ -8,10 +8,18 @@ public class RestaurantDto
     [Description("The name of the restaurant")]
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+    
+    [Description("The unique name of the restaurant")]
+    [JsonPropertyName("uniqueName")]
+    public string? UniqueName { get; set; }
 
     [Description("The restaurant's address")]
     [JsonPropertyName("address")]
     public Address? Address { get; set; }
+    
+    [Description("The restaurant's latitude and longitude")]
+    [JsonPropertyName("location")]
+    public GeoLocation? Location { get; set; }
 
     [Description("The restaurant's page on Just Eat Takeaway")]
     [JsonPropertyName("url")]
