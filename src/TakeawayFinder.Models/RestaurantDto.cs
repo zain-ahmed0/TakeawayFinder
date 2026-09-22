@@ -17,13 +17,9 @@ public class RestaurantDto
     [JsonPropertyName("address")]
     public Address? Address { get; set; }
     
-    [Description("The restaurant's latitude and longitude")]
-    [JsonPropertyName("location")]
-    public GeoLocation? Location { get; set; }
-
     [Description("The restaurant's page on Just Eat Takeaway")]
     [JsonPropertyName("url")]
-    public string? Url { get; set; }
+    public string? Url => $"https://www.just-eat.co.uk/restaurants-{UniqueName}/menu";
 
     [Description("URL to the restaurant's logo")]
     [JsonPropertyName("logourl")]

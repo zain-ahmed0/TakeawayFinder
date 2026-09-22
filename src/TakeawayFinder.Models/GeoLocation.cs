@@ -7,5 +7,5 @@ public class GeoLocation
 {
     [Description("The restaurant's geo location")]
     [JsonPropertyName("coordinates")]
-    public double[] Coordinates { get; set; }
+    public double[] Coordinates { get; set; } = [];
 }
